@@ -9,6 +9,7 @@ const refs = {
     minutesValue: document.querySelector('[data-minutes]'),
     secondsValue: document.querySelector('[data-seconds]'),
 }
+
 let timerId = null;
 
 const options = {
