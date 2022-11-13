@@ -20,7 +20,7 @@ const options = {
     onClose(selectedDates) {
 
         // тут я обчислюю скільки залишилося до обраної дати
-        let ms = selectedDates[0] - new Date()
+        let ms = selectedDates[0] - new Date();
         function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
@@ -50,8 +50,8 @@ const options = {
             window.alert("Please choose a date in the future")
         } else {
             refs.startButton.disabled = false;
-            refs.startButton.addEventListener('click', function countDown() {
-                timerId = setInterval(setDate,1000)
+            refs.startButton.addEventListener('click', ()=>{
+                timerId = setInterval(setDate()),1000
         })
             
       }
