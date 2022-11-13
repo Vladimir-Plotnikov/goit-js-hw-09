@@ -18,10 +18,9 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
     onClose(selectedDates) {
-        let setDateSec = selectedDates[0].getTime();
-        let defDateSec = options.defaultDate.getTime();
-      
-       let ms = setDateSec-defDateSec
+
+        // тут я обчислюю скільки залишилося до обраної дати
+        let ms = selectedDates[0] - new Date()
         function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
@@ -35,23 +34,26 @@ const options = {
 
   return { days, hours, minutes, seconds };
         }
+
+        // тут я записую результат обчислення у табло
+       
         function setDate() {
             refs.secondsValue.innerHTML = convertMs(ms).seconds;
             refs.minutesValue.innerHTML = convertMs(ms).minutes;
             refs.hoursValue.innerHTML = convertMs(ms).hours;
             refs.daysValue.innerHTML = convertMs(ms).days;
         }
+        
+        // тут збирається все разом
         if (selectedDates[0] <= options.defaultDate) {
             refs.startButton.disabled = true;
             window.alert("Please choose a date in the future")
         } else {
             refs.startButton.disabled = false;
-            refs.startButton.addEventListener('click', countDown)
-            
-            function countDown() {
+            refs.startButton.addEventListener('click', function countDown() {
                 timerId = setInterval(setDate,1000)
-            }
-            console.log(timerId);
+        })
+            
       }
   },
 };
