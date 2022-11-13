@@ -16,8 +16,6 @@ console.log(refs.dataPicker);
 
 refs.startButton.disabled = true;
 
-//flatpickr
-
 const options = {
     enableTime: true,
     time_24hr: true,
