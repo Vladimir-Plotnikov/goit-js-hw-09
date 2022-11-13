@@ -44,7 +44,7 @@ const options = {
             refs.daysValue.innerHTML = convertMs(ms).days;
         }
         
-        // тут збирається все разом
+        // тут збирається все разом: закидаю ланцюжок від обчислення до запису в лічильник.
         if (selectedDates[0] <= options.defaultDate) {
             refs.startButton.disabled = true;
             window.alert("Please choose a date in the future")
